@@ -1,13 +1,9 @@
 from fastapi import APIRouter
 from api.v1.feedback.serializer import FeedbackSerializer
 from db.feedback.models import FeedbackModel
-from typing import Any
 from db.config import get_db
 from fastapi import Depends
-from db.config import get_db
 from sqlalchemy.orm import Session
-from fastapi.responses import JSONResponse
-from fastapi.encoders import jsonable_encoder
 from fastapi import HTTPException, status
 from typing import List
 
@@ -29,7 +25,7 @@ async def get_feedbacks_list(db: Session = Depends(get_db)) -> List[FeedbackSeri
 async def get_feedback(feedback_id: int, db: Session = Depends(get_db)) -> FeedbackSerializer:
     """Эндпоинт для получения feedback по заданному ID."""
 
-    feedback = db.query(FeedbackModel).filter(FeedbackModel.id==feedback_id).first()
+    feedback = db.query(FeedbackModel).filter(FeedbackModel.id == feedback_id).first()
 
     if not feedback:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,

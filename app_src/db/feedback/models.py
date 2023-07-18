@@ -13,5 +13,5 @@ class FeedbackModel(Base):
 
     def __repr__(self):
         return "<User(fio='%s', message='%s', contact_data='%s')>" % (
-                     self.fio, self.message, self.contact_data,
+            self.fio, self.message, self.contact_data,
         )

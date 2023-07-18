@@ -1,9 +1,8 @@
 from start_api import app
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from db.config import get_db, Base
 from fastapi.testclient import TestClient
-from sqlalchemy.ext.declarative import declarative_base
 import os
 
 
@@ -12,6 +11,7 @@ DATABASE_URL_TEST = f"sqlite:///{DB_NAME_TEST}"
 
 engine_test = create_engine(DATABASE_URL_TEST, echo=True)
 SessionTest = sessionmaker(autocommit=False, autoflush=False, bind=engine_test)
+
 
 def get_db_test():
     """Необходимо для того чтобы переопределить базу данных для теста."""

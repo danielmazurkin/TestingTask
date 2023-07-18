@@ -1,5 +1,4 @@
 from .conftest import client
-from start_api import app
 
 
 def test_create_feedback():
@@ -8,19 +7,19 @@ def test_create_feedback():
     response = client.post(
         "/feedback/create/",
         json={
-          "fio": "string",
-          "message": "string",
-          "contact_data": "string"
+            "fio": "string",
+            "message": "string",
+            "contact_data": "string"
         },
     )
 
     assert response.status_code == 201
     assert response.json() == {
-              "id": 1,
-              "fio": "string",
-              "message": "string",
-              "contact_data": "string"
-            }
+        "id": 1,
+        "fio": "string",
+        "message": "string",
+        "contact_data": "string"
+    }
 
 
 def test_get_feedback():
@@ -32,10 +31,10 @@ def test_get_feedback():
 
     assert response.status_code == 200
     assert response.json() == {
-            "id": 1,
-            "fio": "string",
-            "message": "string",
-            "contact_data": "string"
+        "id": 1,
+        "fio": "string",
+        "message": "string",
+        "contact_data": "string"
     }
 
 

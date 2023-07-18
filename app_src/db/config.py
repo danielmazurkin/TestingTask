@@ -1,6 +1,4 @@
-from typing import AsyncGenerator
 import os
-from sqlalchemy import MetaData
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base

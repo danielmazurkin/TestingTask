@@ -1,4 +1,3 @@
-import logging
 import uvicorn
 from core.base import app
 from db.config import Base, engine
